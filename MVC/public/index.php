@@ -15,6 +15,7 @@ $router = new Core\Router();
 $router->add('',['controller'=>'home','action'=>'index']);
 $router->add('{controller}/{action}');
 $router->add('{controller}/{id:\d+}/{action}');
+$router->add('admin/{controller}/{action}',['namespace'=>'Admin']);
 
 //Display the Routing Table
 /*echo "<pre>";
@@ -32,4 +33,6 @@ if($router->match($url)){
 }*/
 $router->dispatch($_SERVER['QUERY_STRING']);
  ?>
+
+
 
