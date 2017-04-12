@@ -3,7 +3,8 @@ namespace Core;
 
 class View{
 
-	public static function render($view){
+	public static function render($view,$args=[]){
+		extract($args,EXTR_SKIP);
 		$file = "../App/Views/$view"; //relative to core directory
 
 		if (is_readable($file)) {
@@ -11,6 +12,16 @@ class View{
 		} else{
 			echo "$file not found";
 		}
+	}
+	//Render a template using Twig template Engine
+	public static function renderTemplate($template,$args=[]){
+		static $twig = null;
+
+		if ($twig == null) {
+			$loader = new \Twig_Loader_Filesystem('../App/Views');
+			$twig = new \Twig_Environment($loader);
+		}
+		echo $twig->render($template,$args);
 	}
 }
 
