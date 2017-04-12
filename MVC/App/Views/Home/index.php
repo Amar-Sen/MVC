@@ -1,16 +1,16 @@
-{% extends "base.html" %}
-
-{% block title %}Home{% endblock %}
-
-{% block body %}
-
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Home</title>
+</head>
+<body>
 	<h1>Welcome</h1>
-	<p>Hello from Twig Template,{{ name }}</p>
-
+	<p>Hello <?php echo htmlspecialchars($name); ?></p>
 	<ul>
-		{% for color in colors %}
-			<li>{{ color }}</li>
-		{% endfor %}
+		<?php foreach ($colors as $color): ?>
+			<li><?php echo htmlspecialchars($color); ?></li>
+		 <?php  endforeach; ?>
 	</ul>
-
-{% endblock %}
+</body>
+</html>
