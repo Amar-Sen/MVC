@@ -1,11 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>Home</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+
 	<h1>Welcome</h1>
-	<p>Hello We are in<b>View->index</b></p>
-</body>
-</html>
+	<p>Hello from Twig Template,{{ name }}</p>
+
+	<ul>
+		{% for color in colors %}
+			<li>{{ color }}</li>
+		{% endfor %}
+	</ul>
+
+{% endblock %}
