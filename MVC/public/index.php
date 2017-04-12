@@ -1,6 +1,8 @@
 <?php 
 /*require '../App/Controllers/Posts.php';
 require '../Core/Router.php';*/
+require_once dirname(__DIR__).'/vendor/Twig/lib/Twig/Autoloader.php';
+Twig_Autoloader::register();
 
 spl_autoload_register(function ($class){
 	$root = dirname(__DIR__);
@@ -33,6 +35,4 @@ if($router->match($url)){
 }*/
 $router->dispatch($_SERVER['QUERY_STRING']);
  ?>
-
-
 
